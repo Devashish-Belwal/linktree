@@ -1,5 +1,6 @@
-"use client"
-import React, { useState } from 'react'
+"use client";
+
+import React, { use, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import { useSearchParams } from 'next/navigation';
@@ -12,7 +13,8 @@ const Generate = ({ params }) => {
   // const [link, setlink] = useState("")
   // const [linktext, setlinktext] = useState("")
   const [links, setLinks] = useState([{link: "", linktext: ""}])
-  const [handle, setHandle] = useState(params.handle);
+  const { handle: initialHandle } = use(params);
+  const [handle, setHandle] = useState(initialHandle);
   const [pic, setpic] = useState("")
   const [desc, setdesc] = useState("")
 
@@ -59,7 +61,7 @@ const Generate = ({ params }) => {
      toast.success(result.message)
      setLinks([])
      setpic("")
-     sethandle("")
+     setHandle("")
     }
     else{
       toast.error(result.message)
