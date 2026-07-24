@@ -11,7 +11,7 @@ export default function Home() {
   
   const createTree = () => { 
     
-    router.push(`/generate?handle=${text}`)
+    router.push(`/generate/${text}`)
   }
   return (
     <main>
